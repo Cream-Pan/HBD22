@@ -3,12 +3,12 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* スクロールバーを非表示 */
+    overflow: hidden;
 }
 
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #5c94fc;
+    background-color: #83adfb;
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -55,7 +55,7 @@ body {
 }
 
 #game-canvas {
-    background-color: #5c94fc;
+    background-color: #6299fe;
     border: 4px solid #000;
     box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
     width: 100%;

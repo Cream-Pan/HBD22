@@ -1,0 +1,141 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* スクロールバーを非表示 */
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #5c94fc;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.nes-btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    color: white;
+    background-color: #209cee;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.nes-btn:hover {
+    background-color: #148cd1;
+    box-shadow: 2px 2px 0 #000;
+    transform: translate(2px, 2px);
+}
+.nes-btn:active {
+    box-shadow: 0 0 0 #000;
+    transform: translate(4px, 4px);
+}
+
+#canvas-container {
+    width: 100%;
+    max-width: 800px; /* PCでの最大幅 */
+    margin: 0 auto;
+}
+
+#game-canvas {
+    background-color: #5c94fc;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1; /* 縦横比を800:400に固定 */
+    display: block;
+}
+
+.letter-box {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 3px solid #fff;
+    background-color: rgba(0,0,0,0.3);
+    margin: 2px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+.collected-letter {
+    color: #ffd700;
+}
+
+@media (min-width: 640px) {
+    .letter-box {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 2.5rem;
+        margin: 5px;
+    }
+}
+
+
+/* --- Touch Controls --- */
+#touch-controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    user-select: none; /* ボタンのテキスト選択を防ぐ */
+    -webkit-user-select: none;
+}
+
+.touch-dpad, .touch-action {
+    display: flex;
+    gap: 20px;
+}
+
+.touch-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.touch-btn-jump {
+    width: 70px;
+    height: 70px;
+}
+
+.touch-btn:active {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* PCなどタッチ操作が不要なデバイスではボタンを非表示にする */
+@media (hover: hover) and (pointer: fine) {
+    #touch-controls {
+        display: none;
+    }
+}

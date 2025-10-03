@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- スマートフォンでの表示と操作性を最適化するための設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Super Puzzle Jumper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen">
+        <h1 class="text-4xl sm:text-6xl mb-4">Super Puzzle Jumper</h1>
+        <p class="text-lg sm:text-xl mb-8">"PUZZLE"の文字を集めよう！</p>
+        <button id="start-button" class="nes-btn">ゲームスタート</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen hidden">
+        <div class="mb-4">
+            <h2 class="text-2xl sm:text-3xl">STAGE <span id="stage-number">1</span></h2>
+            <div id="puzzle-display" class="flex">
+                <!-- JavaScriptで文字がここに入る -->
+            </div>
+        </div>
+        <div id="canvas-container">
+            <canvas id="game-canvas" width="800" height="400"></canvas>
+        </div>
+        
+        <!-- Touch Controls for Mobile -->
+        <div id="touch-controls">
+            <div class="touch-dpad">
+                <button id="touch-left" class="touch-btn">◀</button>
+                <button id="touch-right" class="touch-btn">▶</button>
+            </div>
+            <div class="touch-action">
+                <button id="touch-jump" class="touch-btn touch-btn-jump">▲</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Level Clear Screen -->
+    <div id="level-clear-screen" class="screen hidden">
+        <h1 class="text-4xl sm:text-5xl mb-6">ステージクリア！</h1>
+        <p class="text-xl sm:text-2xl mb-4">文字を獲得した！</p>
+        <div id="acquired-letter" class="letter-box text-6xl w-24 h-24 leading-[96px] bg-yellow-400 text-black border-black"></div>
+        <button id="next-stage-button" class="nes-btn mt-8">次のステージへ</button>
+    </div>
+
+    <!-- Final Clear Screen -->
+    <div id="final-clear-screen" class="screen hidden">
+        <h1 class="text-4xl sm:text-6xl mb-8">ゲームクリア！</h1>
+        <div class="flex mb-8">
+            <div class="letter-box collected-letter">P</div>
+            <div class="letter-box collected-letter">U</div>
+            <div class="letter-box collected-letter">Z</div>
+            <div class="letter-box collected-letter">Z</div>
+            <div class="letter-box collected-letter">L</div>
+            <div class="letter-box collected-letter">E</div>
+        </div>
+        <p class="text-xl sm:text-2xl mb-8">おめでとう！パズルが完成した！</p>
+        <button id="restart-button" class="nes-btn">もう一度遊ぶ</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

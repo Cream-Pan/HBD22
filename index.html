@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <!-- スマートフォンでの表示と操作性を最適化するための設定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Super Puzzle Jumper</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,8 +12,9 @@
 
     <!-- Start Screen -->
     <div id="start-screen" class="screen">
-        <h1 class="text-4xl sm:text-6xl mb-4">Super Puzzle Jumper</h1>
-        <p class="text-lg sm:text-xl mb-8">"PUZZLE"の文字を集めよう！</p>
+        <h1 class="text-4xl sm:text-6xl mb-4">22nd Birthday Game</h1>
+        <p class="text-lg sm:text-xl mb-8">コインを取りながらゴールして文字を集めよう！</p>
+        <p id="sound-notice" class="text-sm mb-4">（クリックまたはキーを押すと音が出ます）</p>
         <button id="start-button" class="nes-btn">ゲームスタート</button>
     </div>
 
@@ -23,7 +23,7 @@
         <div class="mb-4">
             <h2 class="text-2xl sm:text-3xl">STAGE <span id="stage-number">1</span></h2>
             <div id="puzzle-display" class="flex">
-                <!-- JavaScriptで文字がここに入る -->
+                <!-- JavaScript will populate this -->
             </div>
         </div>
         <div id="canvas-container">
@@ -40,11 +40,16 @@
                 <button id="touch-jump" class="touch-btn touch-btn-jump">▲</button>
             </div>
         </div>
-
     </div>
 
-    <!-- Level Clear Screen -->
-    <div id="level-clear-screen" class="screen hidden">
+    <!-- Goal Screen -->
+    <div id="goal-screen" class="screen hidden">
+        <h1 class="text-4xl sm:text-5xl mb-6">GOAL!</h1>
+        <button id="show-letter-button" class="nes-btn mt-8">獲得した文字を見る</button>
+    </div>
+
+    <!-- Letter Reveal Screen -->
+    <div id="letter-reveal-screen" class="screen hidden">
         <h1 class="text-4xl sm:text-5xl mb-6">ステージクリア！</h1>
         <p class="text-xl sm:text-2xl mb-4">文字を獲得した！</p>
         <div id="acquired-letter" class="letter-box text-6xl w-24 h-24 leading-[96px] bg-yellow-400 text-black border-black"></div>
@@ -62,9 +67,17 @@
             <div class="letter-box collected-letter">L</div>
             <div class="letter-box collected-letter">E</div>
         </div>
-        <p class="text-xl sm:text-2xl mb-8">おめでとう！パズルが完成した！</p>
+        <p class="text-xl sm:text-2xl mb-8">おめでとう！パズルをゲットした！</p>
         <button id="restart-button" class="nes-btn">もう一度遊ぶ</button>
     </div>
+
+    <!-- Audio Files -->
+    <audio id="bgm" src="BGM/bgm.mp3" loop preload="auto"></audio>
+    <audio id="goal-se" src="BGM/goal.mp3" preload="auto"></audio>
+    <audio id="hit-se" src="BGM/hit.mp3" preload="auto"></audio>
+    <audio id="clear-se" src="BGM/clear.mp3" preload="auto"></audio>
+    <audio id="button-se" src="BGM/button.mp3" preload="auto"></audio>
+    <audio id="coin-se" src="BGM/coin.mp3" preload="auto"></audio>
 
     <script src="app.js"></script>
 </body>
